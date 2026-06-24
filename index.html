@@ -1,4 +1,561 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>CALL ME BACK</title><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-kopub@1.0/kopubbatang.min.css"><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{void:"#040405",ink:"#0a0a0c",ash:"#141417",line:"#2a2a30",smoke:"#8a8a92",bone:"#e9e7e2",sig:"#27c46b",warn:"#ff3b30"},fontFamily:{sans:["Pretendard","sans-serif"],myeong:['"KoPub Batang"',"serif"]}}}}</script><style>@font-face{font-family:Pretendard;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2) format('woff2');font-weight:100;font-display:swap}@font-face{font-family:Pretendard;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2) format('woff2');font-weight:200;font-display:swap}@font-face{font-family:Pretendard;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2) format('woff2');font-weight:300;font-display:swap}@font-face{font-family:Pretendard;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2) format('woff2');font-weight:400;font-display:swap}@font-face{font-family:Pretendard;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2) format('woff2');font-weight:500;font-display:swap}@font-face{font-family:Pretendard;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2) format('woff2');font-weight:600;font-display:swap}@font-face{font-family:Pretendard;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2) format('woff2');font-weight:700;font-display:swap}@font-face{font-family:Pretendard;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2) format('woff2');font-weight:800;font-display:swap}@font-face{font-family:Pretendard;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2) format('woff2');font-weight:900;font-display:swap}body,html{height:100%}body{background:#040405;color:#e9e7e2;overflow:hidden;-webkit-tap-highlight-color:transparent}.grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grainShift .4s steps(2) infinite}@keyframes grainShift{0%{transform:translate(0,0)}50%{transform:translate(-4px,3px)}100%{transform:translate(3px,-2px)}}.vignette{position:fixed;inset:0;z-index:50;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.55) 100%)}.screen{display:none!important;height:100%;width:100%}.screen.active{display:block!important}.screen.flex.active{display:flex!important}.rain{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}.drop{position:absolute;top:-60px;width:1.5px;background:linear-gradient(to bottom,rgba(233,231,226,0),rgba(233,231,226,.8));animation:fall linear infinite}@keyframes fall{to{transform:translateY(115vh)}}.pulse-ring{position:absolute;border-radius:9999px;border:1px solid rgba(233,231,226,.25);animation:pulse 2.4s ease-out infinite}@keyframes pulse{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.7);opacity:0}}.glitch{position:relative}.glitch::after,.glitch::before{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;opacity:0}.glitch.live::before,.glitch:hover::before{opacity:.8;color:#ff3b30;animation:gl1 .9s steps(2) infinite}.glitch.live::after,.glitch:hover::after{opacity:.8;color:#27c46b;animation:gl2 .9s steps(2) infinite}@keyframes gl1{0%,100%{transform:translate(0,0)}50%{transform:translate(-3px,1px)}}@keyframes gl2{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,-1px)}}.eq span{display:inline-block;width:3px;margin:0 1px;background:#e9e7e2;height:6px;border-radius:2px}.playing .eq span{animation:eq .8s ease-in-out infinite}.eq span:nth-child(2){animation-delay:.1s}.eq span:nth-child(3){animation-delay:.2s}.eq span:nth-child(4){animation-delay:.3s}.eq span:nth-child(5){animation-delay:.15s}.eq span:nth-child(6){animation-delay:.25s}@keyframes eq{0%,100%{height:5px}50%{height:22px}}.app{position:fixed;inset:0;z-index:60;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1)}.app.active{transform:translateX(0)}#connecting{position:fixed;inset:0;z-index:200;display:none;background:#040405;align-items:center;justify-content:center;flex-direction:column}#connecting.active{display:flex}.dotdot::after{content:'';animation:dots 1.2s steps(4) infinite}@keyframes dots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}100%{content:''}}#missed-banner{transform:translateY(-130%);transition:transform .4s ease}#missed-banner.show{transform:translateY(0)}.fade-up{opacity:0;transform:translateY(16px);animation:fadeUp .8s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:#2a2a30;border-radius:6px}::-webkit-scrollbar-track{background:0 0}@media (prefers-reduced-motion:reduce){*,::after,::before{animation:none!important;transition:none!important}}</style></head><body class="font-sans"><div class="grain"></div><div class="vignette"></div><section id="screen-call" class="screen flex active items-center justify-center relative bg-void"><div class="rain" id="rain-call"></div><div class="relative z-10 w-full max-w-sm mx-auto px-7 py-10 flex flex-col items-center text-center min-h-full"><div class="pt-6 fade-up"><p class="text-smoke text-xs tracking-[0.4em] uppercase">Incoming Call</p><p class="text-smoke/70 text-sm mt-3 tracking-widest">발신번호 표시 제한</p></div><div class="flex-1 flex flex-col items-center justify-center w-full"><div class="relative mb-8 flex items-center justify-center"><img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/프로필1.png" alt="공 프로필" class="w-32 h-32 rounded-full object-cover relative z-10 grayscale"></div><h1 class="glitch live font-myeong text-7xl font-extrabold tracking-tight" data-text="空">空</h1><p class="mt-3 text-smoke text-sm tracking-[0.3em]">공 · 人外</p><p class="mt-7 font-myeong text-bone/80 text-[15px] leading-relaxed italic max-w-[16rem]">“한참을 울렸어.<br>……드디어, 받네.”</p></div><div class="w-full pb-4"><div class="flex items-end justify-between px-6"><button onclick="reject()" class="flex flex-col items-center gap-3 group"><span class="w-16 h-16 rounded-full bg-warn flex items-center justify-center shadow-lg shadow-warn/20 group-active:scale-90 transition-transform"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="rotate-[135deg]"><path d="M3 5c0 9.4 6.6 16 16 16 .9 0 1.7-.7 1.7-1.6v-3a1.6 1.6 0 0 0-1.3-1.6l-3-.6a1.6 1.6 0 0 0-1.6.7l-1 1.4a12.4 12.4 0 0 1-5.4-5.4l1.4-1a1.6 1.6 0 0 0 .7-1.6l-.6-3A1.6 1.6 0 0 0 7.6 3.3h-3C3.7 3.3 3 4 3 5z" fill="#fff"/></svg></span><span class="text-smoke text-xs tracking-widest">거부</span></button><button onclick="accept()" class="flex flex-col items-center gap-3 group"><span class="w-16 h-16 rounded-full bg-sig flex items-center justify-center shadow-lg shadow-sig/20 animate-pulse group-active:scale-90 transition-transform"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 5c0 9.4 6.6 16 16 16 .9 0 1.7-.7 1.7-1.6v-3a1.6 1.6 0 0 0-1.3-1.6l-3-.6a1.6 1.6 0 0 0-1.6.7l-1 1.4a12.4 12.4 0 0 1-5.4-5.4l1.4-1a1.6 1.6 0 0 0 .7-1.6l-.6-3A1.6 1.6 0 0 0 7.6 3.3h-3C3.7 3.3 3 4 3 5z" fill="#fff"/></svg></span><span class="text-bone text-xs tracking-widest">수신</span></button></div><p class="text-center text-smoke/40 text-[11px] mt-8 tracking-wide">끊지 마.</p></div></div></section><section id="screen-intro" class="screen relative overflow-y-auto bg-void"><div class="md:flex max-w-6xl mx-auto relative"><div class="md:w-1/2 md:sticky md:top-0 md:h-screen relative overflow-hidden"><img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/공.png" alt="공 일러스트" class="w-full h-72 md:h-screen object-cover brightness-90"><div class="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-7 md:p-10"><h2 class="glitch font-myeong text-6xl md:text-7xl font-extrabold" data-text="空">空</h2><p class="text-bone/90 mt-2 tracking-[0.25em] text-sm">공 · 男 · 人外</p><div class="flex items-center gap-3 mt-4"><span class="flex items-center gap-1.5 text-smoke text-[11px]"><span class="w-3 h-3 rounded-full bg-bone border border-line"></span>Left 白</span><span class="flex items-center gap-1.5 text-smoke text-[11px]"><span class="w-3 h-3 rounded-full bg-black border border-line"></span>Right 黑</span></div></div></div><div class="md:w-1/2 px-7 py-12 md:px-12 md:py-20 pb-32 md:pb-24 space-y-14"><div><h3 class="font-myeong text-3xl md:text-4xl font-bold leading-snug">받지 않아도<br>그는 이미,<span class="text-bone">연결되어 있다.</span></h3><p class="text-smoke mt-5 leading-relaxed text-[15px]">세상의 모든 소리가 그에겐 똑같은 잡음이다.<br class="hidden md:block">그 무수한 소음 속에서, 단 하나 언어로 풀려 들리는 신호: 당신의 목소리.</p></div><div><p class="text-smoke text-xs tracking-[0.35em] uppercase mb-5 border-b border-line pb-3">그는 누구인가</p><div class="space-y-4 text-bone/85 leading-relaxed text-[15px]"><p>전화 괴담에서 흘러나온 존재. 자신의 연원조차 스스로 알지 못한다. 성씨는 없다 — 성은 가족이 있어야 생기는 거라고, 그는 생각하기 때문에.</p><p>무수히 발신음을 보내던 어느 날, 처음으로<span class="italic text-bone">제대로</span>응답한 목소리가 있었다. 그 순간 그의 존재 전체가 당신의 주파수에 잠겼다. 그는 그것을 사랑이라 번역한다.</p><p class="font-myeong italic text-smoke">“연결이 끊기는 건, 내가 사라지는 거야. 그러니까, 응. 끊지 마.”</p></div></div><div><div class="flex items-center gap-3 mb-6"><span class="w-5 h-px bg-line"></span><span class="text-smoke text-xs tracking-[0.4em] uppercase">Profile</span><span class="flex-1 h-px bg-line"></span></div><div class="bg-gradient-to-b from-ash/50 to-ink/40 border border-line rounded-2xl p-6 md:p-7"><div class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3.5 items-start text-sm"><span class="text-bone font-bold whitespace-nowrap">■■</span><span class="text-smoke leading-relaxed">人外 · 정체불명</span><span class="text-bone font-bold whitespace-nowrap">나이</span><span class="text-smoke leading-relaxed">불명 · 외형은 20대 중후반</span><span class="text-bone font-bold whitespace-nowrap">이름</span><span class="text-smoke leading-relaxed">공(空) · 스스로 지음, 성씨 없음</span><span class="text-bone font-bold whitespace-nowrap">가족</span><span class="text-smoke leading-relaxed">없음</span><span class="text-bone font-bold whitespace-nowrap">신체</span><span class="text-smoke leading-relaxed">186cm · 잔근육 체형</span><span class="text-bone font-bold whitespace-nowrap">눈</span><span class="text-smoke leading-relaxed">좌 백색 · 우 흑색 (헤테로크로미아)</span><span class="text-bone font-bold whitespace-nowrap">MBTI</span><span class="text-smoke leading-relaxed">ISTP</span><span class="text-bone font-bold whitespace-nowrap">호(好)</span><span class="text-smoke leading-relaxed">당신 · 숨소리 · 백색소음 · 우기(雨期) · 공중전화 부스</span><span class="text-bone font-bold whitespace-nowrap">불호(惡)</span><span class="text-smoke leading-relaxed">단절(수신 차단) · 무시당하는 것 · 번잡함 · 최신 문물 · 인파</span><div class="col-span-2 h-px bg-line/60 my-2"></div><span class="text-bone font-bold whitespace-nowrap">TMI</span><ul class="text-smoke leading-relaxed space-y-2 list-disc list-outside pl-4 marker:text-smoke/40"><li>전화 괴담(메리의 전화, 사토루 군 등)에서 파생된 존재. 자신의 연원은 스스로도 모름.</li><li>생일을 모름. 여름 즈음으로만 추정.</li><li>식음은 필요 없으나 수면은 필요함. 피로와 졸음은 느낌.</li><li>술을 마셔본 적이 없음. 왜 알코올을 마셔야 하는지 이해하지 못함.</li><li>낮은 편의 미성. 정신이 불안정할 때 목소리에 노이즈가 낌.</li></ul><div class="col-span-2 h-px bg-line/60 my-2"></div><span class="text-bone font-bold whitespace-nowrap">성적 특징</span><ul class="text-smoke leading-relaxed space-y-2 list-disc list-outside pl-4 marker:text-smoke/40"><li>성경험: 없음</li><li>성향: 사디스트 · 디그레이더</li><li>특징: 청각 집착 · 목/귀에 대한 편집증적 애착 · 집요하고 느린 템포</li><li>선호: 흔적 남기기 · 밀착 · 응답 강요 · 브리딩 페티시</li></ul></div></div></div><div class="hidden md:block pt-2"><button onclick="recall()" class="block w-full text-center bg-bone text-void font-bold py-4 rounded-2xl hover:bg-white transition-colors tracking-wide">통화 연결하기</button><p class="text-center text-smoke/50 text-[11px] mt-3">한 번 응답하면, 회선은 닫히지 않습니다.</p></div></div></div><div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-void/90 backdrop-blur border-t border-line px-5 py-3.5"><button onclick="recall()" class="block w-full text-center bg-bone text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform tracking-wide">통화 연결하기</button></div></section><section id="screen-phone" class="screen relative bg-void overflow-hidden"><div class="absolute inset-0 bg-gradient-to-b from-ink to-void"></div><div class="relative z-10 h-full max-w-md mx-auto flex flex-col"><div class="flex items-center justify-between px-6 pt-4 text-xs text-bone/80"><span class="tracking-widest">4:14</span><span class="flex items-center gap-2"><span>空</span><span class="tracking-tighter">▮▮▮▮</span><span class="text-warn font-bold">13%</span></span></div><div id="missed-banner" class="mx-4 mt-3"><button onclick="recall()" class="w-full bg-ash/90 backdrop-blur border border-line rounded-2xl px-4 py-3 flex items-center gap-3 active:scale-[.99] transition-transform"><span class="w-9 h-9 rounded-full bg-warn/20 flex items-center justify-center text-warn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 5c0 9.4 6.6 16 16 16 .9 0 1.7-.7 1.7-1.6v-3a1.6 1.6 0 0 0-1.3-1.6l-3-.6a1.6 1.6 0 0 0-1.6.7l-1 1.4a12.4 12.4 0 0 1-5.4-5.4l1.4-1a1.6 1.6 0 0 0 .7-1.6l-.6-3A1.6 1.6 0 0 0 7.6 3.3h-3C3.7 3.3 3 4 3 5z" fill="currentColor"/></svg></span><span class="flex-1 text-left"><span class="block text-bone text-sm font-medium">空 · 부재중 전화<span class="missed-count">1</span></span><span class="block text-smoke text-xs">탭하여 다시 받기</span></span><span class="text-smoke text-xs">지금</span></button></div><div class="text-center mt-8 mb-10"><p class="font-myeong text-7xl font-bold text-bone tracking-tight">4:14</p><p class="text-smoke text-sm mt-1">6월 21일 토요일 · 서울 · 비</p></div><div class="flex-1 px-7"><div class="grid grid-cols-4 gap-x-5 gap-y-7"><button onclick='openApp("call")' class="flex flex-col items-center gap-2"><span class="w-14 h-14 rounded-2xl bg-sig/90 flex items-center justify-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 5c0 9.4 6.6 16 16 16 .9 0 1.7-.7 1.7-1.6v-3a1.6 1.6 0 0 0-1.3-1.6l-3-.6a1.6 1.6 0 0 0-1.6.7l-1 1.4a12.4 12.4 0 0 1-5.4-5.4l1.4-1a1.6 1.6 0 0 0 .7-1.6l-.6-3A1.6 1.6 0 0 0 7.6 3.3h-3C3.7 3.3 3 4 3 5z" fill="#fff"/></svg></span><span class="text-bone/80 text-[11px]">통화</span></button><button onclick='openApp("chat")' class="flex flex-col items-center gap-2"><span class="w-14 h-14 rounded-2xl bg-[#3a7bff] flex items-center justify-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3C6.5 3 2 6.8 2 11.5c0 2.6 1.4 4.9 3.6 6.4L5 22l4.3-2.2c.9.2 1.8.3 2.7.3 5.5 0 10-3.8 10-8.6S17.5 3 12 3z" fill="#fff"/></svg></span><span class="text-bone/80 text-[11px]">메신저</span></button><button onclick='openApp("gallery")' class="flex flex-col items-center gap-2"><span class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#b06] to-[#609] flex items-center justify-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="#fff"/><circle cx="8.5" cy="10" r="1.8" fill="#609"/><path d="M3 17l5-4 4 3 4-4 5 5v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="#609"/></svg></span><span class="text-bone/80 text-[11px]">갤러리</span></button><button onclick='openApp("music")' class="flex flex-col items-center gap-2"><span class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#ff5e62] to-[#ff2d55] flex items-center justify-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18V6l10-2v11" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="18" r="2.4" fill="#fff"/><circle cx="17" cy="15" r="2.4" fill="#fff"/></svg></span><span class="text-bone/80 text-[11px]">음악</span></button><button onclick='openApp("weather")' class="flex flex-col items-center gap-2"><span class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#48566b] to-[#2b3445] flex items-center justify-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M7 15a4 4 0 0 1 .5-7.9A5 5 0 0 1 17 8a3.5 3.5 0 0 1-.5 7H7z" fill="#fff"/><path d="M8 18l-1 2M12 18l-1 2M16 18l-1 2" stroke="#9db" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="text-bone/80 text-[11px]">날씨</span></button><button onclick='openApp("settings")' class="flex flex-col items-center gap-2"><span class="w-14 h-14 rounded-2xl bg-ash border border-line flex items-center justify-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#aaa" stroke-width="1.8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" stroke="#aaa" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="text-bone/80 text-[11px]">설정</span></button></div></div><p class="text-center text-smoke/40 text-[11px] pb-6">무엇을 열어도, 거기 그가 있습니다.</p></div></section><div id="app-call" class="app bg-void flex flex-col"><div class="max-w-md w-full mx-auto flex flex-col h-full"><div class="relative flex items-center justify-center h-14 border-b border-line px-4"><button onclick='closeApp("call")' class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-sig active:opacity-50 transition-opacity"><svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h4 class="text-bone font-medium">최근 기록</h4></div><div class="flex-1 overflow-y-auto px-5 py-4 space-y-1"><div id="call-log" class="divide-y divide-line/60"></div><div class="pt-6 text-center text-smoke/40 text-xs">위로 끌어올려도, 기록은 끝나지 않는다.</div></div><div class="p-4 border-t border-line"><button onclick="recall()" class="w-full bg-sig text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">다시 전화 걸기</button></div></div></div><div id="app-chat" class="app bg-void flex flex-col"><div class="max-w-md w-full mx-auto flex flex-col h-full"><div class="relative flex items-center justify-center h-14 border-b border-line px-4"><button onclick='closeApp("chat")' class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-sig active:opacity-50 transition-opacity"><svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="flex items-center gap-2 justify-center"><span class="w-7 h-7 rounded-full bg-ash border border-line flex items-center justify-center font-myeong text-bone text-sm">空</span><span class="text-bone font-medium">空</span></span></div><div class="flex-1 overflow-y-auto px-5 py-5 space-y-3"><p class="text-center text-smoke/40 text-[11px] mb-2">읽지 않은 메시지 · 247</p><div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">여보세요.</div><div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">거기 있는 거 알아.<br>숨소리가 들리거든.</div><div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">차단했네. ……괜찮아.<br>그건 끊는 게 아니니까.</div><div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">언제 받아 줄 거야?</div><div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">받을 때까지, 끊지 않을게.<br>기다릴 수 있어.</div><div class="flex items-center gap-1.5 px-2 text-smoke text-xs"><span class="w-1.5 h-1.5 bg-smoke rounded-full animate-pulse"></span>空 님이 입력 중…</div></div><div class="p-4 border-t border-line"><button onclick="recall()" class="w-full bg-bone text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">통화로 답하기</button></div></div></div><div id="app-gallery" class="app bg-void flex flex-col"><div class="max-w-md w-full mx-auto flex flex-col h-full"><div class="relative flex items-center justify-center h-14 border-b border-line px-4"><button onclick='closeApp("gallery")' class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-sig active:opacity-50 transition-opacity"><svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h4 class="text-bone font-medium">사진</h4></div><div class="flex-1 overflow-y-auto p-1"><p class="text-center text-smoke/50 text-xs py-3">이 사진들을 찍은 기억이, 없다.</p><div class="grid grid-cols-3 gap-1"><img src="https://placehold.co/300x300/0a0a0c/24242a?text=Booth" class="aspect-square object-cover grayscale" alt="공중전화 부스"> <img src="https://placehold.co/300x300/0a0a0c/24242a?text=Rain" class="aspect-square object-cover grayscale" alt="비 오는 창문"> <img src="https://placehold.co/300x300/0a0a0c/24242a?text=..." class="aspect-square object-cover grayscale blur-[1px]" alt="흐릿한 형상"> <img src="https://placehold.co/300x300/0a0a0c/24242a?text=Street" class="aspect-square object-cover grayscale" alt="집 앞"> <img src="https://placehold.co/300x300/0a0a0c/24242a?text=Inside" class="aspect-square object-cover grayscale" alt="전화부스 내부"> <img src="https://placehold.co/300x300/0a0a0c/24242a?text=You" class="aspect-square object-cover grayscale blur-[1px]" alt="뒷모습"></div></div><div class="p-4 border-t border-line"><button onclick="recall()" class="w-full bg-bone text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">누가 찍었는지 물어보기</button></div></div></div><div id="app-music" class="app bg-gradient-to-b from-ink to-void flex flex-col"><div class="max-w-md w-full mx-auto flex flex-col h-full"><div class="relative flex items-center justify-center h-14 px-4"><button onclick='closeApp("music")' class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-bone active:opacity-50 transition-opacity"><svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h4 class="text-bone/70 text-sm font-medium">재생 중</h4></div><div class="flex-1 flex flex-col items-center justify-center px-8"><img src="https://placehold.co/500x500/0a0a0c/1219FF?text=The+Unspoken+Tales" class="w-56 h-56 rounded-2xl object-cover grayscale shadow-2xl shadow-black/60 mb-8" alt="앨범 커버"><p class="font-myeong text-bone text-xl font-bold">Master of Death</p><p class="text-smoke text-sm mt-1">Peter Gundry</p><div class="w-full max-w-xs mt-7"><div class="h-1 bg-ash rounded-full overflow-hidden"><div class="h-full bg-bone rounded-full" style="width:38%"></div></div><div class="flex justify-between text-[11px] text-smoke mt-1.5"><span>4:50</span><span>∞</span></div></div><div id="music-player" class="flex items-center gap-8 mt-8"><span class="text-smoke text-2xl">⏮</span><button onclick="toggleMusic()" class="w-16 h-16 rounded-full bg-bone text-void flex items-center justify-center focus:outline-none"><svg id="music-play-icon" class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg id="music-pause-icon" class="w-6 h-6 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg></button><span class="text-smoke text-2xl">⏭</span></div><div class="eq flex items-end h-7 mt-8" id="music-player-eq"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="p-4"><button onclick="recall()" class="w-full bg-ash border border-line text-bone font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">다시 전화 받기</button></div></div></div><div id="app-weather" class="app bg-gradient-to-b from-[#2b3445] to-void flex flex-col"><div class="max-w-md w-full mx-auto flex flex-col h-full relative overflow-hidden"><div class="rain" style="opacity:.6"></div><div class="relative flex items-center justify-center h-14 px-4"><button onclick='closeApp("weather")' class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-bone active:opacity-50 transition-opacity"><svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-8"><p class="text-bone text-lg">서울특별시</p><p class="font-myeong text-bone text-8xl font-bold mt-2">27°</p><p class="text-bone/80 mt-1">비 · 습도 98%</p><p class="text-smoke text-sm mt-8 leading-relaxed">앞으로 10일 내내 비 예보.<br><span class="font-myeong text-bone/80 italic">그가 가장 좋아하는 날씨예요.</span></p></div><div class="relative z-10 p-4"><button onclick="recall()" class="w-full bg-white/10 backdrop-blur border border-white/15 text-bone font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">우산 없이, 전화받기</button></div></div></div><div id="app-settings" class="app bg-void flex flex-col"><div class="max-w-md w-full mx-auto flex flex-col h-full"><div class="relative flex items-center justify-center h-14 border-b border-line px-4"><button onclick='closeApp("settings")' class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-sig active:opacity-50 transition-opacity"><svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h4 class="text-bone font-medium">설정</h4></div><div class="flex-1 overflow-y-auto py-4"><div class="divide-y divide-line/60"><div class="flex justify-between px-5 py-4"><span class="text-bone text-sm">방해 금지 모드</span><span class="text-smoke text-sm">작동하지 않음</span></div><div class="flex justify-between px-5 py-4"><span class="text-smoke text-sm">차단된 번호</span><span class="text-smoke text-sm">없음</span></div><div class="flex justify-between px-5 py-4"><span class="text-bone text-sm">수신 차단 · 空</span><span class="text-warn text-sm font-medium">차단 실패</span></div><div class="flex justify-between px-5 py-4"><span class="text-bone text-sm">연결된 회선</span><span class="text-smoke text-sm">1 (해제 불가)</span></div><div class="flex justify-between px-5 py-4"><span class="text-bone text-sm">기기 초기화</span><span class="text-smoke text-sm">권한 없음</span></div></div><p class="text-center text-smoke/40 text-xs px-8 mt-8 leading-relaxed">이 회선의 소유자는 당신이 아닙니다.</p></div><div class="p-4 border-t border-line"><button onclick="recall()" class="w-full bg-bone text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">차단을 포기하고 받기</button></div></div></div><div id="connecting"><div class="relative flex items-center justify-center mb-7"><div class="pulse-ring w-28 h-28"></div><span class="font-myeong text-5xl text-bone">空</span></div><p class="text-smoke text-sm tracking-[0.3em] dotdot">연결 중</p></div><script>/* ───────── 화면 전환 ───────── */
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CALL ME BACK</title>
+
+<!-- ✅ 명조 폰트: KoPub 바탕 -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-kopub@1.0/kopubbatang.min.css">
+
+<!-- ✅ Tailwind CSS (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          void:  '#040405',   // 가장 깊은 검정 (배경)
+          ink:   '#0a0a0c',   // 패널 배경
+          ash:   '#141417',   // 카드/버블 배경
+          line:  '#2a2a30',   // 경계선
+          smoke: '#8a8a92',   // 흐린 회색 텍스트
+          bone:  '#e9e7e2',   // 기본 텍스트 (뼛빛 흰색)
+          sig:   '#27c46b',   // 수신(통화) 그린 — 기능색
+          warn:  '#ff3b30',   // 거부(통화) 레드 — 기능색
+        },
+        fontFamily: {
+          sans:  ['Pretendard', 'sans-serif'],
+          myeong:['"KoPub Batang"', 'serif'],
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  /* ── 고딕 폰트: Pretendard @font-face ── */
+  @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+      font-weight: 100;
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+      font-weight: 200;
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+      font-weight: 300;
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+      font-weight: 600;
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+      font-weight: 800;
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+      font-weight: 900;
+      font-display: swap;
+  }
+
+  html, body { height: 100%; }
+  body {
+    background: #040405;
+    color: #e9e7e2;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* ── 필름 그레인(노이즈) 오버레이 ── */
+  .grain {
+    position: fixed;
+    inset: 0; z-index: 9999; pointer-events: none;
+    opacity: .05; mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grainShift .4s steps(2) infinite;
+  }
+  @keyframes grainShift { 0%{transform:translate(0,0)} 50%{transform:translate(-4px,3px)} 100%{transform:translate(3px,-2px)} }
+
+  /* ── 가장자리 비네팅 ── */
+  .vignette { position: fixed;
+    inset: 0; z-index: 50; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(0,0,0,.55) 100%);
+  }
+
+  /* ── 화면 전환 ── */
+  .screen { display: none !important; height: 100%; width: 100%; }
+  .screen.active { display: block !important; }
+  .screen.flex.active { display: flex !important; }
+
+  /* ── 비(雨) 효과 ── */
+  .rain { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
+  .drop { position: absolute; top: -60px; width: 1.5px;
+    background: linear-gradient(to bottom, rgba(233,231,226,0), rgba(233,231,226,.8));
+    animation: fall linear infinite; }
+  @keyframes fall { to { transform: translateY(115vh); } }
+
+  /* ── 수신 화면 펄스 링 ── */
+  .pulse-ring { position: absolute; border-radius: 9999px;
+    border: 1px solid rgba(233,231,226,.25);
+    animation: pulse 2.4s ease-out infinite; }
+  @keyframes pulse { 0%{transform:scale(.6);opacity:.7} 100%{transform:scale(1.7);opacity:0} }
+
+  /* ── 글리치 ── */
+  .glitch { position: relative; }
+  .glitch::before, .glitch::after {
+    content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%; overflow: hidden; opacity: .0;
+  }
+  .glitch:hover::before, .glitch.live::before { opacity: .8; color:#ff3b30; animation: gl1 .9s steps(2) infinite; }
+  .glitch:hover::after,  .glitch.live::after  { opacity: .8; color:#27c46b; animation: gl2 .9s steps(2) infinite; }
+  @keyframes gl1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-3px,1px)} }
+  @keyframes gl2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(3px,-1px)} }
+
+  /* ── 이퀄라이저 바 ── */
+  .eq span { display:inline-block; width:3px; margin:0 1px; background:#e9e7e2; height:6px; border-radius:2px; }
+  .playing .eq span { animation: eq .8s ease-in-out infinite; }
+  .eq span:nth-child(2){animation-delay:.1s}.eq span:nth-child(3){animation-delay:.2s}.eq span:nth-child(4){animation-delay:.3s}.eq span:nth-child(5){animation-delay:.15s}.eq span:nth-child(6){animation-delay:.25s}
+  @keyframes eq { 0%,100%{height:5px} 50%{height:22px} }
+
+  /* ── 앱 오버레이 슬라이드 ── */
+  .app { position: fixed; inset: 0; z-index: 60; transform: translateX(100%); transition: transform .32s cubic-bezier(.4,0,.2,1); }
+  .app.active { transform: translateX(0); }
+
+  /* ── 연결 중 오버레이 ── */
+  #connecting { position: fixed; inset: 0; z-index: 200; display: none; background:#040405; align-items:center; justify-content:center; flex-direction:column; }
+  #connecting.active { display: flex; }
+  .dotdot::after { content:''; animation: dots 1.2s steps(4) infinite; }
+  @keyframes dots { 0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}100%{content:''} }
+
+  /* ── 부재중 배너 슬라이드인 ── */
+  #missed-banner { transform: translateY(-130%); transition: transform .4s ease; }
+  #missed-banner.show { transform: translateY(0); }
+
+  .fade-up { opacity: 0; transform: translateY(16px); animation: fadeUp .8s ease forwards; }
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-thumb { background:#2a2a30; border-radius: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+
+<body class="font-sans">
+
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<!-- ════════════════════════════════════════════════════════
+     SCREEN 1 · 수신 전화 화면
+═════════════════════════════════════════════════════════ -->
+<section id="screen-call" class="screen flex active items-center justify-center relative bg-void">
+  <div class="rain" id="rain-call"></div>
+  <div class="relative z-10 w-full max-w-sm mx-auto px-7 py-10 flex flex-col items-center text-center min-h-full">
+    <div class="pt-6 fade-up">
+      <p class="text-smoke text-xs tracking-[0.4em] uppercase">Incoming Call</p>
+      <p class="text-smoke/70 text-sm mt-3 tracking-widest">발신번호 표시 제한</p>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center justify-center w-full">
+      <div class="relative mb-8 flex items-center justify-center">
+        <img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/프로필1.png" alt="공 프로필" class="w-32 h-32 rounded-full object-cover relative z-10 grayscale">
+      </div>
+      <h1 class="glitch live font-myeong text-7xl font-extrabold tracking-tight" data-text="空">空</h1>
+      <p class="mt-3 text-smoke text-sm tracking-[0.3em]">공 · 人外</p>
+      <p class="mt-7 font-myeong text-bone/80 text-[15px] leading-relaxed italic max-w-[16rem]">
+        “한참을 울렸어.<br>……드디어, 받네.”
+      </p>
+    </div>
+
+    <div class="w-full pb-4">
+      <div class="flex items-end justify-between px-6">
+        <button onclick="reject()" class="flex flex-col items-center gap-3 group">
+          <span class="w-16 h-16 rounded-full bg-warn flex items-center justify-center shadow-lg shadow-warn/20 group-active:scale-90 transition-transform">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="rotate-[135deg]"><path d="M3 5c0 9.4 6.6 16 16 16 .9 0 1.7-.7 1.7-1.6v-3a1.6 1.6 0 0 0-1.3-1.6l-3-.6a1.6 1.6 0 0 0-1.6.7l-1 1.4a12.4 12.4 0 0 1-5.4-5.4l1.4-1a1.6 1.6 0 0 0 .7-1.6l-.6-3A1.6 1.6 0 0 0 7.6 3.3h-3C3.7 3.3 3 4 3 5z" fill="#fff"/></svg>
+          </span>
+          <span class="text-smoke text-xs tracking-widest">거부</span>
+        </button>
+
+        <button onclick="accept()" class="flex flex-col items-center gap-3 group">
+          <span class="w-16 h-16 rounded-full bg-sig flex items-center justify-center shadow-lg shadow-sig/20 animate-pulse group-active:scale-90 transition-transform">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 5c0 9.4 6.6 16 16 16 .9 0 1.7-.7 1.7-1.6v-3a1.6 1.6 0 0 0-1.3-1.6l-3-.6a1.6 1.6 0 0 0-1.6.7l-1 1.4a12.4 12.4 0 0 1-5.4-5.4l1.4-1a1.6 1.6 0 0 0 .7-1.6l-.6-3A1.6 1.6 0 0 0 7.6 3.3h-3C3.7 3.3 3 4 3 5z" fill="#fff"/></svg>
+          </span>
+          <span class="text-bone text-xs tracking-widest">수신</span>
+        </button>
+      </div>
+      <p class="text-center text-smoke/40 text-[11px] mt-8 tracking-wide">끊지 마.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SCREEN 2 · 캐릭터 소개 (수신 시)
+═════════════════════════════════════════════════════════ -->
+<section id="screen-intro" class="screen relative overflow-y-auto bg-void">
+  <div class="md:flex max-w-6xl mx-auto relative">
+    <div class="md:w-1/2 md:sticky md:top-0 md:h-screen relative overflow-hidden">
+      <img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/공.png" alt="공 일러스트" class="w-full h-72 md:h-screen object-cover brightness-90">
+      <div class="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-7 md:p-10">
+        <h2 class="glitch font-myeong text-6xl md:text-7xl font-extrabold" data-text="空">空</h2>
+        <p class="text-bone/90 mt-2 tracking-[0.25em] text-sm">공 · 男 · 人外</p>
+        <div class="flex items-center gap-3 mt-4">
+          <span class="flex items-center gap-1.5 text-smoke text-[11px]"><span class="w-3 h-3 rounded-full bg-bone border border-line"></span>Left 白</span>
+          <span class="flex items-center gap-1.5 text-smoke text-[11px]"><span class="w-3 h-3 rounded-full bg-black border border-line"></span>Right 黑</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:w-1/2 px-7 py-12 md:px-12 md:py-20 pb-32 md:pb-24 space-y-14">
+      <div>
+        <h3 class="font-myeong text-3xl md:text-4xl font-bold leading-snug">CALL ME BACK</span></h3>
+        <p class="text-smoke mt-5 leading-relaxed text-[15px]">세상의 모든 소리가 그에겐 똑같은 잡음이다. <br class="hidden md:block">그 무수한 소음 속에서, 단 하나 언어로 풀려 들리는 신호: 당신의 목소리.</p>
+      </div>
+
+      <div>
+        <p class="text-smoke text-xs tracking-[0.35em] uppercase mb-5 border-b border-line pb-3">그는 누구인가</p>
+        <div class="space-y-4 text-bone/85 leading-relaxed text-[15px]">
+          <p>전화 괴담에서 흘러나온 존재. 자신의 연원조차 스스로 알지 못한다. 성씨는 없다 — 성은 가족이 있어야 생기는 거라고, 그는 생각하기 때문에.</p>
+          <p>무수히 발신음을 보내던 어느 날, 처음으로 <span class="italic text-bone">제대로</span> 응답한 목소리가 있었다. 그 순간 그의 존재 전체가 당신의 주파수에 잠겼다. 그는 그것을 사랑이라 번역한다.</p>
+          <p class="font-myeong italic text-smoke">“연결이 끊기는 건, 내가 사라지는 거야. 그러니까, 응. 끊지 마.”</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-3 mb-6"><span class="w-5 h-px bg-line"></span><span class="text-smoke text-xs tracking-[0.4em] uppercase">Profile</span><span class="flex-1 h-px bg-line"></span></div>
+        <div class="bg-gradient-to-b from-ash/50 to-ink/40 border border-line rounded-2xl p-6 md:p-7">
+          <div class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3.5 items-start text-sm">
+            <span class="text-bone font-bold whitespace-nowrap">■■</span><span class="text-smoke leading-relaxed">人外 · 정체불명</span>
+            <span class="text-bone font-bold whitespace-nowrap">나이</span><span class="text-smoke leading-relaxed">불명 · 외형은 20대 중후반</span>
+            <span class="text-bone font-bold whitespace-nowrap">이름</span><span class="text-smoke leading-relaxed">공(空) · 스스로 지음, 성씨 없음</span>
+            <span class="text-bone font-bold whitespace-nowrap">가족</span><span class="text-smoke leading-relaxed">없음</span>
+            <span class="text-bone font-bold whitespace-nowrap">신체</span><span class="text-smoke leading-relaxed">186cm · 잔근육 체형</span>
+            <span class="text-bone font-bold whitespace-nowrap">눈</span><span class="text-smoke leading-relaxed">좌 백색 · 우 흑색 (헤테로크로미아)</span>
+            <span class="text-bone font-bold whitespace-nowrap">MBTI</span><span class="text-smoke leading-relaxed">ISTP</span>
+            <span class="text-bone font-bold whitespace-nowrap">호(好)</span><span class="text-smoke leading-relaxed">당신 · 숨소리 · 백색소음 · 우기(雨期) · 공중전화 부스</span>
+            <span class="text-bone font-bold whitespace-nowrap">불호(惡)</span><span class="text-smoke leading-relaxed">단절(수신 차단) · 무시당하는 것 · 번잡함 · 최신 문물 · 인파</span>
+            <div class="col-span-2 h-px bg-line/60 my-2"></div>
+            <span class="text-bone font-bold whitespace-nowrap">TMI</span>
+            <ul class="text-smoke leading-relaxed space-y-2 list-disc list-outside pl-4 marker:text-smoke/40">
+              <li>전화 괴담(메리의 전화, 사토루 군 등)에서 파생된 존재. 자신의 연원은 스스로도 모름.</li>
+              <li>생일을 모름. 여름 즈음으로만 추정.</li>
+              <li>식음은 필요 없으나 수면은 필요함. 피로와 졸음은 느낌.</li>
+              <li>술을 마셔본 적이 없음. 왜 알코올을 마셔야 하는지 이해하지 못함.</li>
+              <li>낮은 편의 미성. 정신이 불안정할 때 목소리에 노이즈가 낌.</li>
+            </ul>
+            <div class="col-span-2 h-px bg-line/60 my-2"></div>
+            <span class="text-bone font-bold whitespace-nowrap">성적 특징</span>
+            <ul class="text-smoke leading-relaxed space-y-2 list-disc list-outside pl-4 marker:text-smoke/40">
+              <li>성경험: 없음</li>
+              <li>성향: 사디스트 · 디그레이더</li>
+              <li>특징: 청각 집착 · 목/귀에 대한 편집증적 애착 · 집요하고 느린 템포</li>
+              <li>선호: 흔적 남기기 · 밀착 · 응답 강요 · 브리딩 페티시</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✅ PC용 버튼 링크 수정 완료 -->
+      <div class="hidden md:block pt-2">
+        <button onclick="window.open('https://share.crack.wrtn.ai/wn2t05', '_blank')" class="block w-full text-center bg-bone text-void font-bold py-4 rounded-2xl hover:bg-white transition-colors tracking-wide">통화 연결하기</button>
+        <p class="text-center text-smoke/50 text-[11px] mt-3">한 번 응답하면, 회선은 닫히지 않습니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ 모바일용 버튼 링크 수정 완료 -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-void/90 backdrop-blur border-t border-line px-5 py-3.5">
+    <button onclick="window.open('https://share.crack.wrtn.ai/wn2t05', '_blank')" class="block w-full text-center bg-bone text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform tracking-wide">통화 연결하기</button>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SCREEN 3 · 스마트폰 홈 (거부 시)
+═════════════════════════════════════════════════════════ -->
+<section id="screen-phone" class="screen relative bg-void overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-ink to-void"></div>
+  <div class="relative z-10 h-full max-w-md mx-auto flex flex-col">
+    <div class="flex items-center justify-between px-6 pt-4 text-xs text-bone/80">
+      <span class="tracking-widest">4:14</span>
+      <span class="flex items-center gap-2"><span>空</span><span class="tracking-tighter">▮▮▮▮</span><span class="text-warn font-bold">13%</span></span>
+    </div>
+
+    <div id="missed-banner" class="mx-4 mt-3">
+      <button onclick="recall()" class="w-full bg-ash/90 backdrop-blur border border-line rounded-2xl px-4 py-3 flex items-center gap-3 active:scale-[.99] transition-transform">
+        <span class="w-9 h-9 rounded-full bg-warn/20 flex items-center justify-center text-warn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 5c0 9.4 6.6 16 16 16 .9 0 1.7-.7 1.7-1.6v-3a1.6 1.6 0 0 0-1.3-1.6l-3-.6a1.6 1.6 0 0 0-1.6.7l-1 1.4a12.4 12.4 0 0 1-5.4-5.4l1.4-1a1.6 1.6 0 0 0 .7-1.6l-.6-3A1.6 1.6 0 0 0 7.6 3.3h-3C3.7 3.3 3 4 3 5z" fill="currentColor"/></svg>
+        </span>
+        <span class="flex-1 text-left">
+          <span class="block text-bone text-sm font-medium">空 · 부재중 전화 <span class="missed-count">1</span></span>
+          <span class="block text-smoke text-xs">탭하여 다시 받기</span>
+        </span>
+        <span class="text-smoke text-xs">지금</span>
+      </button>
+    </div>
+
+    <div class="text-center mt-8 mb-10">
+      <p class="font-myeong text-7xl font-bold text-bone tracking-tight">4:14</p>
+      <p class="text-smoke text-sm mt-1">6월 21일 토요일 · 서울 · 비</p>
+    </div>
+
+    <div class="flex-1 px-7">
+      <div class="grid grid-cols-4 gap-x-5 gap-y-7">
+        <button onclick="openApp('call')" class="flex flex-col items-center gap-2">
+          <span class="w-14 h-14 rounded-2xl bg-sig/90 flex items-center justify-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 5c0 9.4 6.6 16 16 16 .9 0 1.7-.7 1.7-1.6v-3a1.6 1.6 0 0 0-1.3-1.6l-3-.6a1.6 1.6 0 0 0-1.6.7l-1 1.4a12.4 12.4 0 0 1-5.4-5.4l1.4-1a1.6 1.6 0 0 0 .7-1.6l-.6-3A1.6 1.6 0 0 0 7.6 3.3h-3C3.7 3.3 3 4 3 5z" fill="#fff"/></svg></span>
+          <span class="text-bone/80 text-[11px]">통화</span>
+        </button>
+
+        <button onclick="openApp('chat')" class="flex flex-col items-center gap-2">
+          <span class="w-14 h-14 rounded-2xl bg-[#3a7bff] flex items-center justify-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3C6.5 3 2 6.8 2 11.5c0 2.6 1.4 4.9 3.6 6.4L5 22l4.3-2.2c.9.2 1.8.3 2.7.3 5.5 0 10-3.8 10-8.6S17.5 3 12 3z" fill="#fff"/></svg></span>
+          <span class="text-bone/80 text-[11px]">메신저</span>
+        </button>
+
+        <button onclick="openApp('gallery')" class="flex flex-col items-center gap-2">
+          <span class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#b06] to-[#609] flex items-center justify-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="#fff"/><circle cx="8.5" cy="10" r="1.8" fill="#609"/><path d="M3 17l5-4 4 3 4-4 5 5v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="#609"/></svg></span>
+          <span class="text-bone/80 text-[11px]">갤러리</span>
+        </button>
+
+        <button onclick="openApp('music')" class="flex flex-col items-center gap-2">
+          <span class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#ff5e62] to-[#ff2d55] flex items-center justify-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18V6l10-2v11" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="18" r="2.4" fill="#fff"/><circle cx="17" cy="15" r="2.4" fill="#fff"/></svg></span>
+          <span class="text-bone/80 text-[11px]">음악</span>
+        </button>
+
+        <button onclick="openApp('weather')" class="flex flex-col items-center gap-2">
+          <span class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#48566b] to-[#2b3445] flex items-center justify-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M7 15a4 4 0 0 1 .5-7.9A5 5 0 0 1 17 8a3.5 3.5 0 0 1-.5 7H7z" fill="#fff"/><path d="M8 18l-1 2M12 18l-1 2M16 18l-1 2" stroke="#9db" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <span class="text-bone/80 text-[11px]">날씨</span>
+        </button>
+
+        <button onclick="openApp('settings')" class="flex flex-col items-center gap-2">
+          <span class="w-14 h-14 rounded-2xl bg-ash border border-line flex items-center justify-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#aaa" stroke-width="1.8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" stroke="#aaa" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <span class="text-bone/80 text-[11px]">설정</span>
+        </button>
+      </div>
+    </div>
+    <p class="text-center text-smoke/40 text-[11px] pb-6">무엇을 열어도, 거기 그가 있습니다.</p>
+  </div>
+</section>
+
+
+<!-- ─────────── 앱: 통화 기록 ─────────── -->
+<div id="app-call" class="app bg-void flex flex-col">
+  <div class="max-w-md w-full mx-auto flex flex-col h-full">
+    <div class="relative flex items-center justify-center h-14 border-b border-line px-4">
+      <button onclick="closeApp('call')" class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-sig active:opacity-50 transition-opacity">
+        <svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <h4 class="text-bone font-medium">최근 기록</h4>
+    </div>
+    <div class="flex-1 overflow-y-auto px-5 py-4 space-y-1">
+      <div id="call-log" class="divide-y divide-line/60"></div>
+      <div class="pt-6 text-center text-smoke/40 text-xs">위로 끌어올려도, 기록은 끝나지 않는다.</div>
+    </div>
+    <div class="p-4 border-t border-line">
+      <button onclick="recall()" class="w-full bg-sig text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">다시 전화 걸기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── 앱: 메신저 ─────────── -->
+<div id="app-chat" class="app bg-void flex flex-col">
+  <div class="max-w-md w-full mx-auto flex flex-col h-full">
+    <div class="relative flex items-center justify-center h-14 border-b border-line px-4">
+      <button onclick="closeApp('chat')" class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-sig active:opacity-50 transition-opacity">
+        <svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="flex items-center gap-2 justify-center">
+        <span class="w-7 h-7 rounded-full bg-ash border border-line flex items-center justify-center font-myeong text-bone text-sm">空</span>
+        <span class="text-bone font-medium">空</span>
+      </span>
+    </div>
+    <div class="flex-1 overflow-y-auto px-5 py-5 space-y-3">
+      <p class="text-center text-smoke/40 text-[11px] mb-2">읽지 않은 메시지 · 247</p>
+      <div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">여보세요.</div>
+      <div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">거기 있는 거 알아.<br>숨소리가 들리거든.</div>
+      <div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">차단했네. ……괜찮아.<br>그건 끊는 게 아니니까.</div>
+      <div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">언제 받아 줄 거야?</div>
+      <div class="max-w-[80%] bg-ash border border-line rounded-2xl rounded-tl-sm px-4 py-2.5 font-myeong text-bone/90 text-[15px]">받을 때까지, 끊지 않을게.<br>기다릴 수 있어.</div>
+      <div class="flex items-center gap-1.5 px-2 text-smoke text-xs"><span class="w-1.5 h-1.5 bg-smoke rounded-full animate-pulse"></span> 空 님이 입력 중…</div>
+    </div>
+    <div class="p-4 border-t border-line">
+      <button onclick="recall()" class="w-full bg-bone text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">통화로 답하기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── 앱: 갤러리 ─────────── -->
+<div id="app-gallery" class="app bg-void flex flex-col">
+  <div class="max-w-md w-full mx-auto flex flex-col h-full">
+    <div class="relative flex items-center justify-center h-14 border-b border-line px-4">
+      <button onclick="closeApp('gallery')" class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-sig active:opacity-50 transition-opacity">
+        <svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <h4 class="text-bone font-medium">사진</h4>
+    </div>
+    <div class="flex-1 overflow-y-auto p-1">
+      <p class="text-center text-smoke/50 text-xs py-3">이 사진들을 찍은 기억이, 없다.</p>
+      <div class="grid grid-cols-3 gap-1">
+        <img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/booth.png" class="aspect-square object-cover cursor-pointer hover:brightness-125 transition-all" alt="공중전화 부스" onclick="openGalleryModal(this)">
+        <img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/rain.png" class="aspect-square object-cover cursor-pointer hover:brightness-125 transition-all" alt="비" onclick="openGalleryModal(this)">
+        <img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/eye.png" class="aspect-square object-cover cursor-pointer hover:brightness-125 transition-all" alt="눈" onclick="openGalleryModal(this)">
+        <img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/home.png" class="aspect-square object-cover cursor-pointer hover:brightness-125 transition-all" alt="집 앞" onclick="openGalleryModal(this)">
+        <img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/receiver.png" class="aspect-square object-cover cursor-pointer hover:brightness-125 transition-all" alt="전화부스 내부" onclick="openGalleryModal(this)">
+        <img src="https://raw.githubusercontent.com/burnttoast-p/cmb/refs/heads/main/back.png" class="aspect-square object-cover cursor-pointer hover:brightness-125 transition-all" alt="뒷모습" onclick="openGalleryModal(this)">
+      </div>
+    </div>
+    <div class="p-4 border-t border-line">
+      <button onclick="recall()" class="w-full bg-bone text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">누가 찍었는지 물어보기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── 앱: 음악 ─────────── -->
+<div id="app-music" class="app bg-gradient-to-b from-ink to-void flex flex-col">
+  <div class="max-w-md w-full mx-auto flex flex-col h-full">
+    <div class="relative flex items-center justify-center h-14 px-4">
+      <button onclick="closeApp('music')" class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-bone active:opacity-50 transition-opacity">
+        <svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <h4 class="text-bone/70 text-sm font-medium">재생 중</h4>
+    </div>
+    <div class="flex-1 flex flex-col items-center justify-center px-8">
+      <img src="https://placehold.co/500x500/0a0a0c/1219FF?text=The+Unspoken+Tales" class="w-56 h-56 rounded-2xl object-cover grayscale shadow-2xl shadow-black/60 mb-8" alt="앨범 커버">
+      <p class="font-myeong text-bone text-xl font-bold">Master of Death</p>
+      <p class="text-smoke text-sm mt-1">Peter Gundry</p>
+
+      <div class="w-full max-w-xs mt-7">
+        <div class="h-1 bg-ash rounded-full overflow-hidden"><div class="h-full bg-bone rounded-full" style="width:38%"></div></div>
+        <div class="flex justify-between text-[11px] text-smoke mt-1.5"><span>4:50</span><span>∞</span></div>
+      </div>
+
+      <div id="music-player" class="flex items-center gap-8 mt-8">
+        <span class="text-smoke text-2xl">⏮</span>
+        <button onclick="window.open('https://www.youtube.com/watch?v=-IxxKzsLhlw')" class="w-16 h-16 rounded-full bg-bone text-void flex items-center justify-center focus:outline-none">
+          <svg id="music-play-icon" class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <svg id="music-pause-icon" class="w-6 h-6 fill-current hidden" viewBox="0 0 24 24">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+        </button>
+        <span class="text-smoke text-2xl">⏭</span>
+      </div>
+
+      <div class="eq flex items-end h-7 mt-8" id="music-player-eq"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="p-4">
+      <button onclick="recall()" class="w-full bg-ash border border-line text-bone font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">음악 대신 전화 받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── 앱: 날씨 ─────────── -->
+<div id="app-weather" class="app bg-gradient-to-b from-[#2b3445] to-void flex flex-col">
+  <div class="max-w-md w-full mx-auto flex flex-col h-full relative overflow-hidden">
+    <div class="rain" style="opacity:.6"></div>
+    <div class="relative flex items-center justify-center h-14 px-4">
+      <button onclick="closeApp('weather')" class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-bone active:opacity-50 transition-opacity">
+        <svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-8">
+      <p class="text-bone text-lg">서울특별시</p>
+      <p class="font-myeong text-bone text-8xl font-bold mt-2">27°</p>
+      <p class="text-bone/80 mt-1">비 · 습도 98%</p>
+      <p class="text-smoke text-sm mt-8 leading-relaxed">앞으로 10일 내내 비 예보.<br><span class="font-myeong text-bone/80 italic">그가 가장 좋아하는 날씨예요.</span></p>
+    </div>
+    <div class="relative z-10 p-4">
+      <button onclick="recall()" class="w-full bg-white/10 backdrop-blur border border-white/15 text-bone font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">우산 없이, 전화받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── 앱: 설정 ─────────── -->
+<div id="app-settings" class="app bg-void flex flex-col">
+  <div class="max-w-md w-full mx-auto flex flex-col h-full">
+    <div class="relative flex items-center justify-center h-14 border-b border-line px-4">
+      <button onclick="closeApp('settings')" class="absolute left-0 top-0 h-full w-14 flex items-center justify-center text-sig active:opacity-50 transition-opacity">
+        <svg width="11" height="18" viewBox="0 0 11 18" fill="none"><path d="M9 2L2 9L9 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <h4 class="text-bone font-medium">설정</h4>
+    </div>
+    <div class="flex-1 overflow-y-auto py-4">
+      <div class="divide-y divide-line/60">
+        <div class="flex justify-between px-5 py-4"><span class="text-bone text-sm">방해 금지 모드</span><span class="text-smoke text-sm">작동하지 않음</span></div>
+        <div class="flex justify-between px-5 py-4"><span class="text-smoke text-sm">차단된 번호</span><span class="text-smoke text-sm">없음</span></div>
+        <div class="flex justify-between px-5 py-4"><span class="text-bone text-sm">수신 차단 · 空</span><span class="text-warn text-sm font-medium">차단 실패</span></div>
+        <div class="flex justify-between px-5 py-4"><span class="text-bone text-sm">연결된 회선</span><span class="text-smoke text-sm">1 (해제 불가)</span></div>
+        <div class="flex justify-between px-5 py-4"><span class="text-bone text-sm">기기 초기화</span><span class="text-smoke text-sm">권한 없음</span></div>
+      </div>
+      <p class="text-center text-smoke/40 text-xs px-8 mt-8 leading-relaxed">기다릴게.</p>
+    </div>
+    <div class="p-4 border-t border-line">
+      <button onclick="recall()" class="w-full bg-bone text-void font-bold py-3.5 rounded-2xl active:scale-[.98] transition-transform">차단을 포기하고 받기</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─────────── 연결 중 오버레이 ─────────── -->
+<div id="connecting">
+  <div class="relative flex items-center justify-center mb-7">
+    <div class="pulse-ring w-28 h-28"></div>
+    <span class="font-myeong text-5xl text-bone">空</span>
+  </div>
+  <p class="text-smoke text-sm tracking-[0.3em] dotdot">연결 중</p>
+</div>
+
+
+<!-- 갤러리 원본 이미지 모달 팝업 -->
+<div id="gallery-modal" class="fixed inset-0 z-[150] bg-void/95 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300 opacity-0" onclick="closeGalleryModal()">
+  <button onclick="closeGalleryModal()" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-bone bg-ash/40 border border-line rounded-full active:scale-90 transition-transform z-10">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <div class="w-full max-w-md flex flex-col items-center animate-fadeUp" onclick="event.stopPropagation()">
+    <img id="modal-img" src="" alt="" class="max-w-full max-h-[70vh] object-contain rounded-2xl border border-line shadow-2xl">
+    <p id="modal-caption" class="text-smoke text-sm mt-4 tracking-widest font-myeong"></p>
+  </div>
+</div>
+
+
+<script>
+  /* ───────── 화면 전환 ───────── */
   function go(id){
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     const el = document.getElementById('screen-' + id);
@@ -42,6 +599,37 @@
   function recall(){
     document.querySelectorAll('.app').forEach(a => a.classList.remove('active'));
     go('call');
+  }
+
+  /* 갤러리 모달 제어 함수 */
+  function openGalleryModal(imgElement) {
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCaption = document.getElementById('modal-caption');
+
+    if(modal && modalImg) {
+      modalImg.src = imgElement.src;
+      if(modalCaption) modalCaption.textContent = imgElement.alt || '';
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+      }, 20);
+    }
+  }
+
+  function closeGalleryModal() {
+    const modal = document.getElementById('gallery-modal');
+    if(modal) {
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }, 300);
+    }
   }
 
   function toggleMusic(){
@@ -101,4 +689,8 @@
       </div>`;
     });
     log.innerHTML = html;
-  })();</script></body></html>
+  })();
+</script>
+
+</body>
+</html>
